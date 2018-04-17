@@ -208,10 +208,14 @@ def get_args(context, log_dir):
 
     for k, v in arg_dict.items():
         args.append(k)
-        args.append(v.replace("{{shared_filesystem}}", log_dir))
+        if isinstance(v, str):
+            value = v.replace("{{shared_filesystem}}", log_dir)
+        else:
+            value = v
+        args.append(value)
 
     parser = get_parser()
-    FLAGS, unparsed = parser.parse_known_args(' '.join(args))
+    FLAGS, unparsed = parser.parse_known_args(' '.join(str(a) for a in args))
 
     return FLAGS, unparsed
 
