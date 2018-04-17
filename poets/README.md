@@ -459,3 +459,8 @@ INFO:tensorflow:Final test accuracy = 86.7% (N=383)
 INFO:tensorflow:Froze 2 variables.
 [2018-04-17 12:48:43,173|tensorflow|INFO]: Froze 2 variables.
 ```
+
+# Limitations
+
+* The model files are not downloaded to HDFS
+* The bottleneck files are not saved to HDFS
