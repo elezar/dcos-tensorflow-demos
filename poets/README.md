@@ -383,7 +383,7 @@ Using the repository above, the following `demos/poets.json` file can be created
         "job_url": "https://github.com/elezar/dcos-tensorflow-demos/archive/master.zip",
         "job_path": "dcos-tensorflow-demos-master/poets",
         "job_name": "poets",
-        "job_context": "{\r\n    \"args\": {\r\n        \"--bottleneck_dir\": \"{{shared_filesystem}}\/bottlenecks\",\r\n        \"--how_many_training_steps\": 500,\r\n        \"--model_dir\": \"/mnt\/mesos\/sandbox\/tf-volume\/models\/\",\r\n        \"--summaries_dir\": \"{{shared_filesystem}}\/training_summaries\/mobilenet_0.50_224\",\r\n        \"--output_graph\": \"{{shared_filesystem}}\/retrained_graph.pb\",\r\n        \"--output_labels\": \"{{shared_filesystem}}\/retrained_labels.txt\",\r\n        \"--architecture\": \"mobilenet_0.50_224\",\r\n        \"--image_dir\": \"hdfs:\/\/default\/tensorflow_input_data\/flower_photos\"\r\n    }\r\n}",
+        "job_context": "{\r\n    \"args\": {\r\n        \"--bottleneck_dir\": \"{{shared_filesystem}}\/bottlenecks\",\r\n        \"--how_many_training_steps\": 500,\r\n        \"--model_dir\": \"\/mnt\/mesos\/sandbox\/tf-volume\/models\/\",\r\n        \"--summaries_dir\": \"{{shared_filesystem}}\/training_summaries\/mobilenet_0.50_224\",\r\n        \"--output_graph\": \"{{shared_filesystem}}\/retrained_graph.pb\",\r\n        \"--output_labels\": \"{{shared_filesystem}}\/retrained_labels.txt\",\r\n        \"--architecture\": \"mobilenet_0.50_224\",\r\n        \"--image_dir\": \"hdfs:\/\/default\/tensorflow_input_data\/flower_photos\"\r\n    }\r\n}",
         "shared_filesystem": "hdfs://default/tensorflow/test_run"
     },
     "parameter_server": {
