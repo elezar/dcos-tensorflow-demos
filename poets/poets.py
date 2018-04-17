@@ -3,10 +3,14 @@ A job to wrap the example at:
 https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html?index=..%2F..%2Findex#0
 """
 import argparse
+import logging
 import sys
 import tensorflow as tf
 
 import retrain
+
+
+log = logging.getLogger(__name__)
 
 
 def get_parser():
@@ -208,14 +212,13 @@ def get_args(context, log_dir):
 
     for k, v in arg_dict.items():
         args.append(k)
-        if isinstance(v, str):
-            value = v.replace("{{shared_filesystem}}", log_dir)
-        else:
-            value = v
+        value = str(v).replace("{{shared_filesystem}}", log_dir)
         args.append(value)
 
+    log.info("Using args=%s", args)
+
     parser = get_parser()
-    FLAGS, unparsed = parser.parse_known_args(' '.join(str(a) for a in args))
+    FLAGS, unparsed = parser.parse_known_args(args)
 
     return FLAGS, unparsed
 
@@ -231,5 +234,8 @@ def main(server, log_dir, context):
     """
 
     retrain.FLAGS, unparsed = get_args(context, log_dir)
+
+    log.info("FLAGS=%s", retrain.FLAGS)
+    log.info("unparsed=%s", unparsed)
 
     tf.app.run(main=retrain.main, argv=[sys.argv[0]] + unparsed)

@@ -19,7 +19,7 @@ context = {
         "--output_graph": "{{shared_filesystem}}/retrained_graph.pb",
         "--output_labels": "{{shared_filesystem}}/retrained_labels.txt",
         "--architecture": "mobilenet_0.50_224",
-        "--image_dir": "hdfs:///tensorflow_input_data/flower_photos"
+        "--image_dir": "{{shared_filesystem}}/tensorflow_input_data/flower_photos"
     }
 }
 
